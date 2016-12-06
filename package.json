@@ -1,0 +1,22 @@
+{
+  "name": "nzb-cleanup",
+  "version": "1.0.0",
+  "description": "Clean up NZB file names",
+  "main": "index.js",
+  "bin": {
+    "nzb-cleanup": "./bin/nzb-cleanup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertklep/node-nzb-cleanup.git"
+  },
+  "author": "Robert Klep <robert@klep.name>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/robertklep/node-nzb-cleanup/issues"
+  },
+  "homepage": "https://github.com/robertklep/node-nzb-cleanup#readme",
+  "dependencies": {
+    "epinfer": "^1.1.0"
+  }
+}
