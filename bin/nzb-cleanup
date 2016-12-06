@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 
-let clean = require('..');
+const clean = require('..');
+let   argv  = require('minimist')(process.argv.slice(2));
+let   files = argv._;
 
-if (process.argv.length < 3) {
-  console.error('Use: %s NZBNAME [NZBNAME ...]', process.argv[1].replace(/.*\//, ''));
+if (files.length < 3) {
+  console.error('Use: %s [-t threshold] NZBNAME [NZBNAME ...]', process.argv[1].replace(/.*\//, ''));
   process.exit(1);
 }
 
-process.argv.slice(2).forEach(name => console.log( clean(name) ));
+files.forEach(name => console.log( clean(name, Number(argv.t || 100) )));

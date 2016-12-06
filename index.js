@@ -14,7 +14,10 @@ module.exports = (nzbname, threshold) => {
     parsed.title,
     parsed.screen_size,
     parsed.format || (parsed.video_codec === 'h265' ? 'HEVC' : null),
-    (parsed.video_codec || 'x264').replace(/^h/, 'x') + '-' + parsed.release_group,
+    [
+      (parsed.video_codec || 'x264').replace(/^h/, 'x'),
+      parsed.release_group,
+    ].filter(s => !!s).join('-'),
     parsed.extension,
   ].filter(s => !!s).map(s => s.replace(/\s+/g, '.')).join('.');
 }
