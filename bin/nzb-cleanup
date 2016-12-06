@@ -1,10 +1,11 @@
 #!/usr/bin/env node
+'use strict';
 
 const clean = require('..');
 let   argv  = require('minimist')(process.argv.slice(2));
-let   files = argv._;
+let   files = argv._ || [];
 
-if (files.length < 3) {
+if (! files.length) {
   console.error('Use: %s [-t threshold] NZBNAME [NZBNAME ...]', process.argv[1].replace(/.*\//, ''));
   process.exit(1);
 }
