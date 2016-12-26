@@ -1,15 +1,17 @@
 'use strict';
 const epinfer = require('epinfer');
+const debug   = require('debug')('nzb-cleanup');
 const pad     = num => ('00' + num).slice(-Math.max(String(num).length, 2))
 
 module.exports = (nzbname, threshold) => {
   let parsed = epinfer.parse(nzbname);
+  debug(parsed);
   if (parsed._score < (threshold || 100)) {
     return nzbname;
   }
   return [
     parsed.series,
-    (parsed.season && parsed.episode) ?
+    (parsed.season != null && parsed.episode != null) ?
       ( 'S' + pad(parsed.season) + 'E' + pad(parsed.episode) ) : null,
     parsed.title,
     parsed.screen_size,
