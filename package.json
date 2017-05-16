@@ -18,7 +18,7 @@
   "homepage": "https://github.com/robertklep/node-nzb-cleanup#readme",
   "dependencies": {
     "debug": "^2.5.2",
-    "epinfer": "github:robertklep/epinfer",
+    "epinfer": "^1.1.1",
     "minimist": "^1.2.0"
   }
 }
