@@ -14,7 +14,9 @@ module.exports = (nzbname, threshold) => {
     (parsed.season != null && parsed.episode != null) ?
       ( 'S' + pad(parsed.season) + 'E' + pad(parsed.episode) ) : null,
     parsed.title,
+    (parsed.release_type || '').toUpperCase(),
     parsed.screen_size,
+    parsed.channel,
     parsed.format || (parsed.video_codec === 'h265' ? 'HEVC' : null),
     [
       (parsed.video_codec || 'x264').replace(/^h/, 'x'),
